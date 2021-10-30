@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, session, redirect, url_for, R
 
 application = Flask(__name__)
 
+@application.route('/')
+def index():
+    return jsonify({'message': 'Success',}), 200
+
 @application.route('/register', methods=['POST', 'GET'])
 def register():
     if 'user_name' and 'role' in session and session['role'] == 'admin':
