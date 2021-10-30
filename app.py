@@ -13,6 +13,7 @@ def main():
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
+    try:
         params = []
         params.append(int(request.form['contact']))
         params.append(int(request.form['marital']))
@@ -23,6 +24,9 @@ def register():
         params.append(int(request.form['month']))
         res = model.predict([params])[0]
         return jsonify({'message': res}), 200
+    
+    except Exception as e:
+        return jsonify({'message': str(e)}), 200
 
 if __name__ == '__main__':
     app.run()
