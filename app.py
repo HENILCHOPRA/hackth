@@ -23,7 +23,7 @@ def register():
         params.append(int(request.form['job']))
         params.append(int(request.form['month']))
         res = model.predict([params])[0]
-        return jsonify({'message': res}), 200
+        return jsonify({'message': str(res)}), 200
     
     except Exception as e:
         return jsonify({'message': str(e)}), 200
