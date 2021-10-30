@@ -21,5 +21,5 @@ def register():
         return jsonify({'message': 'Error',}), 500
 
 if __name__ == '__main__':
-    application.run(host='155.33.134.47', port=8080, threaded=True, debug=False)
+    application.run(debug=False)
     
